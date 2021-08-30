@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-class Tarjeta extends Component {
+class Container extends Component {
 
     constructor(props){ 
     super(props);
@@ -18,7 +18,7 @@ class Tarjeta extends Component {
         .then(function(data){
             console.log(data);
             this.setState({
-                movies: data.data           
+                movies: data.results           
             })
         })
         .catch(function(error){
@@ -55,4 +55,4 @@ class Tarjeta extends Component {
         )
 }
 
-export default Tarjeta;
+export default Container;

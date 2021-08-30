@@ -9,7 +9,7 @@ function App() {
   return (
     <React.Fragment>
       <Header/>
-      <Tarjeta/>
+      <Container/>
       <Footer/>
       </React.Fragment>
   );
