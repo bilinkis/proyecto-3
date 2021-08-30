@@ -12,10 +12,10 @@ class Container extends Component {
     }
 
     componentDidMount(){
-        fetch('https://api.themoviedb.org/3/movie/top_rated?api_key=<<0ef54cf87594d6b6ca72ab2de24ffdc0>>&language=en-US&page=1')
+        fetch('https://api.themoviedb.org/3/trending/all/day?api_key=0ef54cf87594d6b6ca72ab2de24ffdc0')
 
         .then(function(response){
-            return response.json
+            return response.json();
         })        
         .then(function(data){
             console.log(data);
@@ -32,12 +32,10 @@ class Container extends Component {
     render(){
         
         return (
-            <React.Fragment>
-              {this.state.movies.map ( (movies, index) =>{
-                  return <Tarjeta key = {index} title= {movies.title}></Tarjeta> 
-              })}
+              this.state.movies.map ( (movies, index) =>{
+                  return <Tarjeta key = {index} title= {movies.title} rating = {movies.vote_average} descripcion= {movies.overview}/> 
+              })
 
-            </React.Fragment>
         );
 }
 }

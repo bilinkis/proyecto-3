@@ -6,7 +6,7 @@ function Footer(){
         return (
             <React.Fragment>
              <footer>
-        <ul class="team">
+        <ul className="team">
             <li>Josefina Staudenmaier</li>
             <li>Nicolas Bilinkis</li>
         </ul>
