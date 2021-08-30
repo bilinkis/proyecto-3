@@ -6,15 +6,14 @@ function Header () {
             <React.Fragment>
               <header>
         <h1>Cuevona</h1>
-        <section>
-            <p>Ordenar ASC/ DESC</p>
-            <i className="fas fa-th"></i>
-            <i className="fas fa-align-justify"></i>
-            <form action="">
-                <input type="text" name="search" id="" placeholder="Search"/>
-                <button type="submit"><i class="fas fa-search"></i></button>
+        <section className= 'header-ordenado'>
+            <form className = 'form-busqueda' action="">
+                <input type="text" name="search" className="busqueda" placeholder="Search"/>
+                <button type="submit" className= 'busqueda'><i class="fas fa-search"></i></button>
             </form>
         </section>
+        <img src="../public/img/banner.jpeg" alt=""/>
+
     </header>
             </React.Fragment>
         )

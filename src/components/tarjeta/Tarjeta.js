@@ -9,7 +9,7 @@ class Tarjeta extends Component{
 render (){ 
         return (
             <React.Fragment>
-              <article>
+              <article className= 'tarjeta'>
                 <section className="navigation">
                     <div>
                         <i className="fas fa-chevron-left"></i>
