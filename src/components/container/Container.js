@@ -38,7 +38,7 @@ class Container extends Component {
               })}
 
             </React.Fragment>
-        )
+        );
 }
 
 export default Container;
