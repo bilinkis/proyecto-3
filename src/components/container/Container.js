@@ -27,7 +27,7 @@ class Container extends Component {
             return console.log(error);
         })
 }
-}
+
 
     render(){
         
@@ -40,5 +40,5 @@ class Container extends Component {
             </React.Fragment>
         );
 }
-
+}
 export default Container;
