@@ -5,7 +5,7 @@ function Header () {
         return (
             <React.Fragment>
               <header>
-        <h1>Título/ Nombre de la app</h1>
+        <h1>Cuevona</h1>
         <section>
             <p>Ordenar ASC/ DESC</p>
             <i class="fas fa-th"></i>

@@ -12,7 +12,7 @@ class Container extends Component {
     }
 
     componentDidMount(){
-        fetch('https://developers.themoviedb.org/3/movies/get-popular-movies')
+        fetch('https://api.themoviedb.org/3/movie/top_rated?api_key=<<0ef54cf87594d6b6ca72ab2de24ffdc0>>&language=en-US&page=1')
 
         .then(function(response){
             return response.json

@@ -21,7 +21,7 @@ function Tarjeta (){
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse qui atque.</p>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse qui atque.</p>
                     </section>
-                    <a href="">Ver más</a>
+                    {/* <a href="">Ver más</a> */}
                 </main>
             </article>
             </React.Fragment>

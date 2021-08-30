@@ -1,8 +1,7 @@
 import React from 'react';
 
-class Footer {
+function Footer(){
 
-    render() {
         
         return (
             <React.Fragment>
@@ -14,8 +13,6 @@ class Footer {
     </footer>
             </React.Fragment>
         )
-    }
-
 
 
 }
