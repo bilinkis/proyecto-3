@@ -3,13 +3,31 @@ import React, {Component} from 'react';
 class Tarjeta extends Component {
 
     constructor(props){ 
-    super(props)
+    super(props);
+    this.state ={
+        movies: []
+    } 
+    }
 
-   /* this.state = {
-        valor: this.props.valorInicial
-    }*/
+    componentDidMount(){
+        fetch('https://developers.themoviedb.org/3/movies/get-popular-movies')
+
+        .then(function(response){
+            return response.json
+        })        
+        .then(function(data){
+            console.log(data);
+            this.setState({
+                movies: data.data           
+            })
+        })
+        .catch(function(error){
+            return console.log(error);
+        })
 }
-    render() {
+}
+
+    render(){
         
         return (
             <React.Fragment>
@@ -35,10 +53,6 @@ class Tarjeta extends Component {
             </article>
             </React.Fragment>
         )
-    }
-
-
-
 }
 
 export default Tarjeta;
