@@ -1,15 +1,6 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-class Header extends Component {
-
-    constructor(props){ 
-    super(props)
-
-   /* this.state = {
-        valor: this.props.valorInicial
-    }*/
-}
-    render() {
+function Header () {
         
         return (
             <React.Fragment>
@@ -27,7 +18,6 @@ class Header extends Component {
     </header>
             </React.Fragment>
         )
-    }
 
 
 

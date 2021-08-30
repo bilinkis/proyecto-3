@@ -1,7 +1,7 @@
 import './App.css';
 import React from 'react';
 import Header from './components/header/Header';
-import Tarjeta from '../src/components/tarjeta/Tarjeta';
+import Container from '../src/components/container/Container';
 import Footer from '../src/components/footer/Footer';
 
 
@@ -9,7 +9,7 @@ function App() {
   return (
     <React.Fragment>
       <Header/>
-      <Tarjeta/>
+      <Container/>
       <Footer/>
       </React.Fragment>
   );
