@@ -18,7 +18,7 @@ render (){
                     <i className="far fa-window-close"></i>
                 </section>
                 <main>
-                    <img src="./img/image-default.png" alt=""/>
+                    <img src={"https://www.themoviedb.org/t/p/w300_and_h450_bestv2" + this.props.image} alt=""/>
                     <h3>{this.props.title}</h3>
                     <p className="description">{this.props.descripcion}</p>
                     <section className="aditional-info">
