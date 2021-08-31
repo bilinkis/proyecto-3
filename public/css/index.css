@@ -11,14 +11,19 @@ body {
 body {
   background: radial-gradient(#f2ece6, #fcf8f5);
   font-family: 'Segoe UI';
-
 }
 
+
+#contenedor-pelis {
+  display: flex;
+  flex-direction: row;
+justify-content: center;
+}
 
 .header-ordenado {
   display: flex;
   flex: auto;
-  padding: aut;
+  padding: auto;
 }
 
 h1{
@@ -35,6 +40,13 @@ h3 {
 article .tarjeta {
   background-color: radial-gradient(#fcf8f5, #f2ece6);
   border-radius: 20px;
+  position: relative;
+  transition: transfrom 500ms;
+}
+
+.tarjeta:hover {
+  transform: scale(1.5);
+  z-index: 1;
 }
 
 code {
