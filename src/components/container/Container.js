@@ -17,7 +17,7 @@ class Container extends Component {
             return response.json();
         })        
         .then((data)=>{
-            
+            console.log(data.results)
             this.setState({movies:data.results})
         })
         .catch((error)=>{
@@ -36,7 +36,7 @@ class Container extends Component {
                 <h2>Cargando...</h2> //Imprimir mensaje de cargando
                 : //sino
               this.state.movies.map ( (movies, index) => { //devolver la info de la
-                  return <Tarjeta key = {index} title= {movies.title} rating = {movies.vote_average} descripcion= {movies.overview}/> 
+                  return <Tarjeta className="card-movies" key = {index} title= {movies.title} rating = {movies.vote_average} image = {movies.poster_path} descripcion= {movies.overview}/> 
               })}
             </div>
         );
