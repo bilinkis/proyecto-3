@@ -30,6 +30,7 @@ h1{
   font-family: 'Segoe UI';
   font-weight: bold;
   color: #2e2d2d;
+  margin-left: 20px;
 }
 
 h3 {
@@ -37,13 +38,9 @@ h3 {
   color: #2e2d2d;
 }
 
-article .tarjeta {
-  background-color: radial-gradient(#fcf8f5, #f2ece6);
-  border-radius: 20px;
-  position: relative;
-  transition: transfrom 500ms;
+.navigation {
+  display: flex;
 }
-
 
 
 code {
@@ -80,5 +77,18 @@ li {
   margin: 0 auto;
   text-align: center;
   border-radius:25px;
-  background-color: grey;
+  background-color: #e6e3dc;
 }
+
+.categorias-header {
+  display: flex;
+  margin: auto;
+}
+
+
+
+.description {
+  font-size: smaller;
+  padding: 3%;
+}
+

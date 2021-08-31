@@ -11,7 +11,7 @@ render (){
             <React.Fragment>
               <article className= 'card'>
                 <section className="navigation">
-                    <div>
+                    <div className='iconos-card'>
                         <i className="fas fa-chevron-left"></i>
                         <i className="fas fa-chevron-right"></i>
                     </div>
@@ -24,7 +24,7 @@ render (){
                     <section className="aditional-info">
                         <p>Rating: {this.props.rating}</p>
                     </section>
-                    {/* <a href="">Ver más</a> */}
+                     <a href="">Ver más</a>
                 </main>
             </article>
             </React.Fragment>
