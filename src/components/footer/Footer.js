@@ -7,8 +7,8 @@ function Footer(){
             <React.Fragment>
              <footer>
         <ul className="team">
-            <li>Josefina Staudenmaier</li>
-            <li>Nicolas Bilinkis</li>
+            <li>Josefina Staudenmaier y Nicolas Bilinkis</li>
+            <li></li>
         </ul>
     </footer>
             </React.Fragment>
