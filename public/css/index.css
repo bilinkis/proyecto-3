@@ -44,10 +44,7 @@ article .tarjeta {
   transition: transfrom 500ms;
 }
 
-.tarjeta:hover {
-  transform: scale(1.5);
-  z-index: 1;
-}
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -71,4 +68,17 @@ li {
   list-style: none;
   display: flex;
   flex:initial;
+}
+.contenedor-pelis{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 25px;
+  grid-auto-rows: minmax(100px, auto);
+}
+.card{
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  border-radius:25px;
+  background-color: grey;
 }
