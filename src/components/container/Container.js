@@ -31,10 +31,14 @@ class Container extends Component {
 
     render = () => {
         return (
-              this.state.movies.map ( (movies, index) => {
-                  return <Tarjeta key = {index} title= {movies.title} rating = {movies.vote_average} descripcion= {movies.overview}/> 
-              })
+            <div className='contenedor-pelis'> {this.state.movies === [] ? //si array de Movies vacío
 
+                <h2>Cargando...</h2> //Imprimir mensaje de cargando
+                : //sino
+              this.state.movies.map ( (movies, index) => { //devolver la info de la
+                  return <Tarjeta key = {index} title= {movies.title} rating = {movies.vote_average} descripcion= {movies.overview}/> 
+              })}
+            </div>
         );
 }
 }
