@@ -10,7 +10,16 @@ class Container extends Component {
     this.state ={
         movies: [],
         page:1,
-    } 
+        busqueda:'',
+    }
+
+    
+
+    }
+    search = () => {
+        let filtroBusqueda = this.state.movies.filter(movies => movies.name.includes(document.getElementById('searchquery').value));
+        console.log(filtroBusqueda)
+        this.setState({movies:filtroBusqueda})
     }
     fetchData = (page) => {
         fetch('https://api.themoviedb.org/3/movie/popular?api_key=0ef54cf87594d6b6ca72ab2de24ffdc0&page='+page)
@@ -109,7 +118,7 @@ class Container extends Component {
                 <h2>Cargando...</h2> //Imprimir mensaje de cargando
                 : //sino
               this.state.movies.map ( (movies, index) => { //devolver la info de la
-                  return <Tarjeta className="card-movies" key = {index} index = {index}id={movies.id} title= {movies.title} rating = {movies.vote_average} image = {movies.poster_path} descripcion= {movies.overview} adult={movies.adult} release_date={movies.release_date} deleteCard={this.deleteCard} moreInfo={this.moreInfo} swap={this.swapPositions} /> 
+                  return <Tarjeta className="card-movies" key = {index} index = {index}id={movies.id} title= {movies.title} rating = {movies.vote_average} image = {movies.poster_path} descripcion= {movies.overview} adult={movies.adult} release_date={movies.release_date} deleteCard={this.deleteCard} moreInfo={this.moreInfo} swap={this.swapPositions} search = {this.search}/> 
               })}
             </div>
             <div className="pagesContainer">

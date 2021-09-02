@@ -12,7 +12,7 @@ function Header () {
             <p>Novedades</p>
             </div>
             <form className = 'form-busqueda' action="">
-                <input type="text" name="search" className="busqueda" placeholder="Search"/>
+                <input type="text" id='searchquery' name="search" className="busqueda" placeholder="Search"/>
                 <button type="submit" className= 'busqueda'><i className="fas fa-search"></i></button>
             </form>
         </section>
