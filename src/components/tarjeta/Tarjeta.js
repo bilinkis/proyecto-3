@@ -21,10 +21,19 @@ render (){
                     <img className="product-box_image" src={"https://www.themoviedb.org/t/p/w300_and_h450_bestv2" + this.props.image} alt=""/>
                     <h3>{this.props.title}</h3>
                     <p className="description">{this.props.descripcion}</p>
-                    <section className="aditional-info">
+                    <button id={"button"+this.props.id} onClick={() => this.props.moreInfo(this.props.id)}>Ver más</button>
+                    <div className="extra">
+                    <section className="aditional-info" id={this.props.id}>
                         <p><b>Rating:</b> {this.props.rating}</p>
+                        <p>Fecha de lanzamiento: {this.props.release_date}</p>
+                        {this.props.adult === false ?
+                        <p>Apta para menores: Si</p>
+                        :
+                        <p>Apta para menores: No</p>
+}
                     </section>
-                     <a href="">Ver más</a>
+                    </div>
+                     
                 </main>
             </article>
             </React.Fragment>
