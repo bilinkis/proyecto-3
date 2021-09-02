@@ -5,7 +5,7 @@ function Header () {
         return (
             <React.Fragment>
               <header>
-            <img className="logo" src= '../public/img/l.png' alt=""/>
+            <img className="logo" src= './img/l.png' alt=""/>
         <section className= 'header-ordenado'>
             <div className= 'categorias-header'>
             <p>Más vistas</p>

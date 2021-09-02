@@ -81,6 +81,7 @@ code {
   flex-direction: row-reverse;
   border-color: transparent;
   flex: 1;
+  margin-right: 2%;
 }
 
 
@@ -335,4 +336,8 @@ li {
   background-image: linear-gradient(to bottom, #e0e0e0, #f0f0f0);
   text-decoration: none;
   color: black;
+}
+.logo{
+  height:auto;
+  width:4%;
 }
