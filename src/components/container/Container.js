@@ -32,11 +32,21 @@ class Container extends Component {
         this.setState({movies:filteredMovies})
     }
     loadPage = (page) =>{
-
         let number = page.target.getAttribute('data-page');
         this.setState({page:number})
         this.fetchData(number);
         window.scrollTo(0, 0);
+    }
+    moreInfo = (id) => {
+        console.log(document.getElementById(id).style.display)
+        if(document.getElementById(id).style.display !== "block"){
+            document.getElementById(id).style.display="block";
+            document.getElementById("button"+id).innerHTML = "Ver menos";
+        }
+        else{
+            document.getElementById(id).style.display="none";
+            document.getElementById("button"+id).innerHTML = "Ver más"
+        }
     }
     componentDidMount(){
         this.fetchData(1);
@@ -47,7 +57,7 @@ class Container extends Component {
         return (
             
             <div>
-                <img src="./img/banner.jpg" className="banner" />
+                <img src="./img/banner.jpg" className="banner" alt="banner"/>
             <h3 className="page-title">Página {this.state.page}</h3>
             <div className='contenedor-pelis'>
                 
@@ -56,7 +66,7 @@ class Container extends Component {
                 <h2>Cargando...</h2> //Imprimir mensaje de cargando
                 : //sino
               this.state.movies.map ( (movies, index) => { //devolver la info de la
-                  return <Tarjeta classNameName="card-movies" key = {index} id={movies.id} title= {movies.title} rating = {movies.vote_average} image = {movies.poster_path} descripcion= {movies.overview} deleteCard={this.deleteCard}/> 
+                  return <Tarjeta classNameName="card-movies" key = {index} id={movies.id} title= {movies.title} rating = {movies.vote_average} image = {movies.poster_path} descripcion= {movies.overview} adult={movies.adult} release_date={movies.release_date} deleteCard={this.deleteCard} moreInfo={this.moreInfo} /> 
               })}
             </div>
             <div className="pagesContainer">
