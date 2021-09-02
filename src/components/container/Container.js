@@ -69,6 +69,12 @@ class Container extends Component {
         
         this.setState({movies: orderedByName});
     }
+    column = () => {
+        document.getElementById('movie-container').style="flex-direction:column";
+    }
+    row = () => {
+        document.getElementById('movie-container').style="flex-direction:row"
+    }
     componentDidMount(){
         this.fetchData(1);
 }
@@ -85,8 +91,10 @@ class Container extends Component {
             <button class="button-17" onClick={this.orderByRatingAsc}>Ordenar por rating (asc)</button>
             <button class="button-17" onClick={this.orderByNameDesc}>Ordenar por título (desc)</button>
             <button class="button-17" onClick={this.orderByNameAsc}>Ordenar por título (asc)</button>
+            <button class="button-17" onClick={this.column}>Ver en columnas</button>
+            <button class="button-17" onClick={this.row}>Ver en filas</button>
             </div>
-            <div className='contenedor-pelis'>
+            <div className='contenedor-pelis' id="movie-container">
                 
                  {this.state.movies === [] ? //si array de Movies vacío
 
