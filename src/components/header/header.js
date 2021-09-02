@@ -5,7 +5,7 @@ function Header () {
         return (
             <React.Fragment>
               <header>
-        <h1>Cuevona</h1>
+            <img className="logo" src= '../public/img/l.png' alt=""/>
         <section className= 'header-ordenado'>
             <div className= 'categorias-header'>
             <p>Más vistas</p>
@@ -13,7 +13,7 @@ function Header () {
             </div>
             <form className = 'form-busqueda' action="">
                 <input type="text" name="search" className="busqueda" placeholder="Search"/>
-                <button type="submit" className= 'busqueda'><i class="fas fa-search"></i></button>
+                <button type="submit" className= 'busqueda'><i className="fas fa-search"></i></button>
             </form>
         </section>
         

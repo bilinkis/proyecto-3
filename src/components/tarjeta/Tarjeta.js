@@ -26,7 +26,7 @@ render (){
                             :
                             <b></b>
                         }
-                        <button className="button-17" onClick={() => this.props.deleteCard(this.props.id)}><i className="far fa-window-close"></i></button>
+                        <button onClick={() => this.props.deleteCard(this.props.id)} className="close-btn">x</button>
                     </div>
                     
                 </section>
