@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Tarjeta from '../tarjeta/Tarjeta';
+import _ from 'underscore';
 
 
 class Container extends Component {
@@ -48,6 +49,26 @@ class Container extends Component {
             document.getElementById("button"+id).innerHTML = "Ver más"
         }
     }
+    orderByRatingDesc = () => {
+        let orderedByRating = _.sortBy(this.state.movies, 'vote_average').reverse();
+        
+        this.setState({movies: orderedByRating});
+    }
+    orderByRatingAsc = () => {
+        let orderedByRating = _.sortBy(this.state.movies, 'vote_average');
+        
+        this.setState({movies: orderedByRating});
+    }
+    orderByNameDesc = () => {
+        let orderedByName = _.sortBy(this.state.movies, 'title').reverse();
+        
+        this.setState({movies: orderedByName});
+    }
+    orderByNameAsc = () => {
+        let orderedByName = _.sortBy(this.state.movies, 'title');
+        
+        this.setState({movies: orderedByName});
+    }
     componentDidMount(){
         this.fetchData(1);
 }
@@ -57,12 +78,14 @@ class Container extends Component {
         return (
             
             <div>
-<<<<<<< HEAD
                 <img src="./img/banner.jpg" className="banner" alt="banner"/>
-=======
-                <img src="./img/banner.jpg" className="banner" alt="" />
->>>>>>> 90b667c0ac85b7ba284b5650687ecead97663c42
             <h3 className="page-title">Página {this.state.page}</h3>
+            <div className="buttonContainer">
+            <button class="button-17" onClick={this.orderByRatingDesc}>Ordenar por rating (desc)</button>
+            <button class="button-17" onClick={this.orderByRatingAsc}>Ordenar por rating (asc)</button>
+            <button class="button-17" onClick={this.orderByNameDesc}>Ordenar por título (desc)</button>
+            <button class="button-17" onClick={this.orderByNameAsc}>Ordenar por título (asc)</button>
+            </div>
             <div className='contenedor-pelis'>
                 
                  {this.state.movies === [] ? //si array de Movies vacío
