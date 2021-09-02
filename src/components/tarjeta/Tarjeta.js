@@ -22,7 +22,7 @@ render (){
                     <h3>{this.props.title}</h3>
                     <p className="description">{this.props.descripcion}</p>
                     <section className="aditional-info">
-                        <p>Rating: {this.props.rating}</p>
+                        <p><b>Rating:</b> {this.props.rating}</p>
                     </section>
                      <a href="">Ver más</a>
                 </main>
