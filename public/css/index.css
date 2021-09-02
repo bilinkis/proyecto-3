@@ -9,7 +9,7 @@ body {
 
 
 body {
-  background: radial-gradient(#f2ece6, #fcf8f5);
+  background:white;
   font-family: 'Segoe UI';
 }
 
@@ -35,7 +35,11 @@ h1{
 
 h3 {
   font-weight: bolder;
-  color: #2e2d2d;
+  color: black;
+}
+.page-title{
+  text-align: center;
+
 }
 
 .navigation {
@@ -45,8 +49,21 @@ h3 {
   margin: 5px;
   text-align: center;
 }
-
-
+.header-ordenado{
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.categorias-header{
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.categorias-header p{
+  margin: 10px;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -63,6 +80,7 @@ code {
 
 header{
   display: flex;
+  background-color: #bdc3c7;
 }
 
 li {
@@ -76,11 +94,7 @@ li {
   flex-wrap: wrap;
 }
 .card{
-  flex: 1 0 32%;
-  margin: 10px;
-  text-align: center;
-  border-radius:25px;
-  background-color: grey;
+  
 }
 .card p{
   font-family:roboto,sans-serif;
@@ -92,8 +106,7 @@ li {
 }
 .card img{
   border-radius: 25px;
-  width: 30%;
-  height: auto;
+  
 }
 .loadButton{
     padding:0.35em 1.2em;
@@ -119,4 +132,96 @@ li {
 .pages li{
   padding:10px 10px 10px 10px;
   display: inline;
+}
+.product-box {
+  flex: 1 0 32%;
+  margin: 10px;
+  text-align: center;
+  border-radius:25px;
+  background-color:#eee;
+  overflow: hidden;
+  transition: 300ms;
+}
+
+.product-box a {
+  display: block;
+}
+
+.product-box_image {
+  border-bottom: 1px solid var(--light-gray);
+  border-radius: 25px;
+  width: 30%;
+  height: auto;
+}
+
+.product-box_data {
+  padding: 15px;
+  
+}
+
+.product-box_data h2 {
+  font-size: 12px;
+  font-weight: 300;
+  margin: 0;
+}
+
+.product-box_data span {
+  font-size: 1.5em;
+  font-weight: 300;
+  color: var(--green);
+  margin: 0 0 0 10px;
+}
+
+.product-box_data p {
+  font-size: 12px;
+  width: 100%;
+  color: var(--gray);
+  margin: 0;
+  height: 0;
+  transition: 300ms;
+  overflow: hidden;
+}
+
+.product-box_data i {
+  color: var(--green);
+  font-size: 1.8em;
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  border: solid 1px;
+  border-radius: 50%;
+  position: absolute;
+  top: -15px;
+  right: 15px;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 300ms;
+}
+
+.product-box:hover {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.product-box:hover p {
+  height: 36px;
+  margin-top: 15px;
+}
+
+.product-box:hover i {
+  transform: rotate(360deg);
+  box-shadow: 0 0 5px var(--green);
+}
+.product-box img{
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+}
+.banner{
+  display:block;
+  margin: 0 auto;
+  padding: 20px;
+  width: 50%;
+  height:auto;
 }
