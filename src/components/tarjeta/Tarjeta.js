@@ -15,7 +15,7 @@ render (){
                         <i className="fas fa-chevron-left"></i>
                         <i className="fas fa-chevron-right"></i>
                     </div>
-                    <i className="far fa-window-close"></i>
+                    <button onClick={() => this.props.deleteCard(this.props.id)}><i className="far fa-window-close"></i></button>
                 </section>
                 <main>
                     <img src={"https://www.themoviedb.org/t/p/w300_and_h450_bestv2" + this.props.image} alt=""/>

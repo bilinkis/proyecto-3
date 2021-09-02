@@ -25,6 +25,12 @@ class Container extends Component {
             return console.log(error);
         })
     }
+    deleteCard = (id) =>{
+        console.log(id);
+        let filteredMovies = this.state.movies.filter(movies => movies.id !== id);
+        console.log(filteredMovies);
+        this.setState({movies:filteredMovies})
+    }
     loadPage = (page) =>{
 
         let number = page.target.getAttribute('data-page');
@@ -48,7 +54,7 @@ class Container extends Component {
                 <h2>Cargando...</h2> //Imprimir mensaje de cargando
                 : //sino
               this.state.movies.map ( (movies, index) => { //devolver la info de la
-                  return <Tarjeta className="card-movies" key = {index} title= {movies.title} rating = {movies.vote_average} image = {movies.poster_path} descripcion= {movies.overview}/> 
+                  return <Tarjeta className="card-movies" key = {index} id={movies.id} title= {movies.title} rating = {movies.vote_average} image = {movies.poster_path} descripcion= {movies.overview} deleteCard={this.deleteCard}/> 
               })}
             </div>
             <div className="pagesContainer">
@@ -76,7 +82,7 @@ class Container extends Component {
                  
             </ul>
             </div>
-            <button className="loadButton" onClick={this.loadNext}>Cargar próxima página</button>
+            
             </div>
         );
 }
