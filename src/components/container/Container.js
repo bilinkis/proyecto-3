@@ -18,7 +18,7 @@ class Container extends Component {
             return response.json();
         })        
         .then((data)=>{
-            
+            console.log(data);
             this.setState({movies:data.results})
         })
         .catch((error)=>{
@@ -45,8 +45,10 @@ class Container extends Component {
 
     render = () => {
         return (
+            
             <div>
-            <h3>Página {this.state.page}</h3>
+                <img src="./img/banner.jpg" className="banner" />
+            <h3 className="page-title">Página {this.state.page}</h3>
             <div className='contenedor-pelis'>
                 
                  {this.state.movies === [] ? //si array de Movies vacío
@@ -54,7 +56,7 @@ class Container extends Component {
                 <h2>Cargando...</h2> //Imprimir mensaje de cargando
                 : //sino
               this.state.movies.map ( (movies, index) => { //devolver la info de la
-                  return <Tarjeta className="card-movies" key = {index} id={movies.id} title= {movies.title} rating = {movies.vote_average} image = {movies.poster_path} descripcion= {movies.overview} deleteCard={this.deleteCard}/> 
+                  return <Tarjeta classNameName="card-movies" key = {index} id={movies.id} title= {movies.title} rating = {movies.vote_average} image = {movies.poster_path} descripcion= {movies.overview} deleteCard={this.deleteCard}/> 
               })}
             </div>
             <div className="pagesContainer">

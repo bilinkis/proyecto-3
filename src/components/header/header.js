@@ -16,9 +16,11 @@ function Header () {
                 <button type="submit" className= 'busqueda'><i class="fas fa-search"></i></button>
             </form>
         </section>
-        <img src="../public/img/banner.jpeg" alt=""/>
+        
+        
 
     </header>
+    
             </React.Fragment>
         )
 

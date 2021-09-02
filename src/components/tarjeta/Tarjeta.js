@@ -9,7 +9,7 @@ class Tarjeta extends Component{
 render (){ 
         return (
             <React.Fragment>
-              <article className= 'card'>
+              <article className= 'product-box'>
                 <section className="navigation">
                     <div className='iconos-card'>
                         <i className="fas fa-chevron-left"></i>
@@ -17,8 +17,8 @@ render (){
                     </div>
                     <button onClick={() => this.props.deleteCard(this.props.id)}><i className="far fa-window-close"></i></button>
                 </section>
-                <main>
-                    <img src={"https://www.themoviedb.org/t/p/w300_and_h450_bestv2" + this.props.image} alt=""/>
+                <main className="product-box_data">
+                    <img className="product-box_image" src={"https://www.themoviedb.org/t/p/w300_and_h450_bestv2" + this.props.image} alt=""/>
                     <h3>{this.props.title}</h3>
                     <p className="description">{this.props.descripcion}</p>
                     <section className="aditional-info">
