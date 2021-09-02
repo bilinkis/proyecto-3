@@ -93,9 +93,7 @@ li {
   flex-direction: row;
   flex-wrap: wrap;
 }
-.card{
-  
-}
+
 .card p{
   font-family:roboto,sans-serif;
   font-size: 14px;
@@ -224,4 +222,7 @@ li {
   padding: 20px;
   width: 50%;
   height:auto;
+}
+.aditional-info{
+  display:none;
 }
