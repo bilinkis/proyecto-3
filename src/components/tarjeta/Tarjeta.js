@@ -12,10 +12,23 @@ render (){
               <article className= 'product-box'>
                 <section className="navigation">
                     <div className='iconos-card'>
-                        <i className="fas fa-chevron-left"></i>
-                        <i className="fas fa-chevron-right"></i>
+                        
+                        {
+                            this.props.index !== 0 ?
+                            <button className="button-17" onClick={() => this.props.swap(+this.props.index - 1,this.props.index)}><i className="fas fa-chevron-left"></i></button>
+                            :
+                            <b></b>
+                        }
+                        
+                        {
+                            this.props.index !== 19 ?
+                            <button className="button-17" onClick={() => this.props.swap(this.props.index,+this.props.index +1)}><i className="fas fa-chevron-right"></i></button>
+                            :
+                            <b></b>
+                        }
+                        <button className="button-17" onClick={() => this.props.deleteCard(this.props.id)}><i className="far fa-window-close"></i></button>
                     </div>
-                    <button onClick={() => this.props.deleteCard(this.props.id)}><i className="far fa-window-close"></i></button>
+                    
                 </section>
                 <main className="product-box_data">
                     <img className="product-box_image" src={"https://www.themoviedb.org/t/p/w300_and_h450_bestv2" + this.props.image} alt=""/>

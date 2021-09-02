@@ -75,6 +75,14 @@ class Container extends Component {
     row = () => {
         document.getElementById('movie-container').style="flex-direction:row"
     }
+    swapPositions = (a,b) => {
+        Array.prototype.swapItems = function(a, b){
+            this[a] = this.splice(b, 1, this[a])[0];
+            return this;
+        }
+        let swapped = this.state.movies.swapItems(a,b);
+        this.setState({movies:swapped});
+    }
     componentDidMount(){
         this.fetchData(1);
 }
@@ -101,7 +109,7 @@ class Container extends Component {
                 <h2>Cargando...</h2> //Imprimir mensaje de cargando
                 : //sino
               this.state.movies.map ( (movies, index) => { //devolver la info de la
-                  return <Tarjeta classNameName="card-movies" key = {index} id={movies.id} title= {movies.title} rating = {movies.vote_average} image = {movies.poster_path} descripcion= {movies.overview} adult={movies.adult} release_date={movies.release_date} deleteCard={this.deleteCard} moreInfo={this.moreInfo} /> 
+                  return <Tarjeta className="card-movies" key = {index} index = {index}id={movies.id} title= {movies.title} rating = {movies.vote_average} image = {movies.poster_path} descripcion= {movies.overview} adult={movies.adult} release_date={movies.release_date} deleteCard={this.deleteCard} moreInfo={this.moreInfo} swap={this.swapPositions} /> 
               })}
             </div>
             <div className="pagesContainer">
