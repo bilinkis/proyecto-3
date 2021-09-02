@@ -47,7 +47,7 @@ class Container extends Component {
         return (
             
             <div>
-                <img src="./img/banner.jpg" className="banner" />
+                <img src="./img/banner.jpg" className="banner" alt="" />
             <h3 className="page-title">Página {this.state.page}</h3>
             <div className='contenedor-pelis'>
                 
