@@ -1,5 +1,7 @@
 import React from 'react';
 
+
+
 function Header () {
         
         return (
@@ -11,10 +13,6 @@ function Header () {
             <p>Más vistas</p>
             <p>Novedades</p>
             </div>
-            <form className = 'form-busqueda' action="">
-                <input type="text" id='searchquery' name="search" className="busqueda" placeholder="Search"/>
-                <button type="submit" className= 'busqueda'><i className="fas fa-search"></i></button>
-            </form>
         </section>
         
         
