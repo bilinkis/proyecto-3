@@ -83,10 +83,15 @@ class Container extends Component {
         this.setState({movies: orderedByName});
     }
     column = () => {
-        document.getElementById('movie-container').style="flex-direction:column";
+        document.getElementById('movie-container').style.flexDirection="column";
     }
     row = () => {
-        document.getElementById('movie-container').style="flex-direction:row"
+        if(document.getElementById('movie-container').style.flexDirection === "row"){
+            document.getElementById('movie-container').style.flexDirection = "column";
+        }
+        else{
+            document.getElementById('movie-container').style.flexDirection = "row";
+        }
     }
     swapPositions = (a,b) => {
         Array.prototype.swapItems = function(a, b){
@@ -98,6 +103,18 @@ class Container extends Component {
     }
     componentDidMount(){
         this.fetchData(1);
+        
+       /* if(document.getElementById('movie-container').style.flexDirection === 'row'){
+            document.getElementById('columns').style = 'display:inline-flex';
+            document.getElementById('rows').style = 'display:none';
+        }
+        else {
+            document.getElementById('rows').style = 'display:inline-flex';
+            document.getElementById('columns').style = 'display:none';
+        }*/
+}
+componentDidUpdate(){
+    console.log(document.getElementById('movie-container').style.flexDirection)
 }
 
 filtrarBuscador(infoAFiltrar){
@@ -135,10 +152,12 @@ filtrarBuscador(infoAFiltrar){
             <button class="button-17" onClick={this.orderByRatingAsc}>Ordenar por rating (asc)</button>
             <button class="button-17" onClick={this.orderByNameDesc}>Ordenar por título (desc)</button>
             <button class="button-17" onClick={this.orderByNameAsc}>Ordenar por título (asc)</button>
-            <button class="button-17" onClick={this.column}>Ver en columnas</button>
-            <button class="button-17" onClick={this.row}>Ver en filas</button>
+            <button class="button-17" id="rows" onClick={this.row}>Cambiar display</button>
+           
+            
+            
             </div>
-            <div className='contenedor-pelis' id="movie-container">
+            <div className='contenedor-pelis' id="movie-container" style={{flexDirection:'row'}}>
                 
                  {this.state.movies === [] ? //si array de Movies vacío
 
