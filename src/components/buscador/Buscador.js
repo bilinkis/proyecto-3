@@ -11,14 +11,16 @@ export default class Buscador extends Component{
     }
 
     prevenirSubmit(event){
-        evento.preventDefault();
+        event.preventDefault();
     }
 
     capturarInfo(event){
     console.log(event.target.value)
     this.setState({
     valor: event.target.value
-})
+},
+() => this.props.filtrarBuscador(this.state.valor)
+)
     }
 
     render(){

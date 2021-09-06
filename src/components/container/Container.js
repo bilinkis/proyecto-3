@@ -98,11 +98,18 @@ class Container extends Component {
 filtrarBuscador(infoAFiltrar){
 
     let moviesFiltrado= this.state.movies.filter(
-        movies => movies.title.includes(infoAFiltrar)
+        movies => movies.title.toLowerCase().includes(infoAFiltrar.toLowerCase())
     )
-    this.setState({
-        filterBuscador : moviesFiltrado
-    })
+        if(infoAFiltrar===''){
+            this.setState({
+                filterBuscador : this.state.movies
+            })
+        }else{
+            this.setState({
+                filterBuscador : moviesFiltrado
+            })
+        }
+   
 
 }
 
@@ -132,7 +139,7 @@ filtrarBuscador(infoAFiltrar){
 
                 <h2>Cargando...</h2> //Imprimir mensaje de cargando
                 : //sino
-              this.state.moviesFiltrado.map ( (movies, index) => { //devolver la info de la
+              this.state.filterBuscador.map ( (movies, index) => { //devolver la info de la
                   return <Tarjeta className="card-movies" key = {index} index = {index}id={movies.id} title= {movies.title} rating = {movies.vote_average} image = {movies.poster_path} descripcion= {movies.overview} adult={movies.adult} release_date={movies.release_date} deleteCard={this.deleteCard} moreInfo={this.moreInfo} swap={this.swapPositions}/> 
               })}
             </div>
