@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Tarjeta from '../tarjeta/Tarjeta';
+import Buscador from '../buscador/Buscador';
 import _ from 'underscore';
 
 
@@ -10,17 +11,12 @@ class Container extends Component {
     this.state ={
         movies: [],
         page:1,
-        busqueda:'',
+        filterBuscador: []
     }
 
-    
 
     }
-    search = () => {
-        let filtroBusqueda = this.state.movies.filter(movies => movies.name.includes(document.getElementById('searchquery').value));
-        console.log(filtroBusqueda)
-        this.setState({movies:filtroBusqueda})
-    }
+
     fetchData = (page) => {
         fetch('https://api.themoviedb.org/3/movie/popular?api_key=0ef54cf87594d6b6ca72ab2de24ffdc0&page='+page)
 
@@ -29,7 +25,10 @@ class Container extends Component {
         })        
         .then((data)=>{
             console.log(data);
-            this.setState({movies:data.results})
+            this.setState({
+            movies:data.results,
+            filterBuscador: data.results 
+        })
         })
         .catch((error)=>{
             return console.log(error);
@@ -96,9 +95,25 @@ class Container extends Component {
         this.fetchData(1);
 }
 
+filtrarBuscador(infoAFiltrar){
+
+    let moviesFiltrado= this.state.movies.filter(
+        movies => movies.title.includes(infoAFiltrar)
+    )
+    this.setState({
+        filterBuscador : moviesFiltrado
+    })
+
+}
+
 
     render = () => {
         return (
+            <React.Fragment>
+            <div>
+                <h3>Buscador</h3>
+                <Buscador filtrarBuscador={(infoAFiltrar)=> this.filtrarBuscador(infoAFiltrar)}/>
+            </div>
             
             <div>
                 <img src="./img/banner.jpg" className="banner" alt="banner"/>
@@ -117,8 +132,8 @@ class Container extends Component {
 
                 <h2>Cargando...</h2> //Imprimir mensaje de cargando
                 : //sino
-              this.state.movies.map ( (movies, index) => { //devolver la info de la
-                  return <Tarjeta className="card-movies" key = {index} index = {index}id={movies.id} title= {movies.title} rating = {movies.vote_average} image = {movies.poster_path} descripcion= {movies.overview} adult={movies.adult} release_date={movies.release_date} deleteCard={this.deleteCard} moreInfo={this.moreInfo} swap={this.swapPositions} search = {this.search}/> 
+              this.state.moviesFiltrado.map ( (movies, index) => { //devolver la info de la
+                  return <Tarjeta className="card-movies" key = {index} index = {index}id={movies.id} title= {movies.title} rating = {movies.vote_average} image = {movies.poster_path} descripcion= {movies.overview} adult={movies.adult} release_date={movies.release_date} deleteCard={this.deleteCard} moreInfo={this.moreInfo} swap={this.swapPositions}/> 
               })}
             </div>
             <div className="pagesContainer">
@@ -148,6 +163,7 @@ class Container extends Component {
             </div>
             
             </div>
+            </React.Fragment>
         );
 }
 }
