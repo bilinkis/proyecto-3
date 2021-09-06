@@ -37,8 +37,13 @@ class Container extends Component {
     deleteCard = (id) =>{
         console.log(id);
         let filteredMovies = this.state.movies.filter(movies => movies.id !== id);
+        if(this.state.filterBuscador !== []){
+            this.setState({filterBuscador:filteredMovies, movies:filteredMovies})
+        } else{
+            this.setState({movies:filteredMovies})
+        }
         console.log(filteredMovies);
-        this.setState({movies:filteredMovies})
+        
     }
     loadPage = (page) =>{
         let number = page.target.getAttribute('data-page');
