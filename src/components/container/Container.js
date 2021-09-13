@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Tarjeta from '../tarjeta/Tarjeta';
 import Buscador from '../buscador/Buscador';
+import Carousel from '../carousel/Carousel';
 import _ from 'underscore';
 
 
@@ -29,6 +30,8 @@ class Container extends Component {
             movies:data.results,
             filterBuscador: data.results 
         })
+        
+          
         })
         .catch((error)=>{
             return console.log(error);
@@ -102,6 +105,7 @@ class Container extends Component {
         this.setState({movies:swapped});
     }
     componentDidMount(){
+        
         this.fetchData(1);
         
        /* if(document.getElementById('movie-container').style.flexDirection === 'row'){
@@ -137,14 +141,20 @@ filtrarBuscador(infoAFiltrar){
 
 
     render = () => {
+        
         return (
             <React.Fragment>
-            <div>
+            <div style={{textAlign:"center"}}>
                 <h3>Buscador</h3>
                 <Buscador filtrarBuscador={(infoAFiltrar)=> this.filtrarBuscador(infoAFiltrar)}/>
             </div>
             
             <div>
+
+                <Carousel movies={this.state.movies}/>
+  
+</div>
+                
                 <img src="./img/banner.jpg" className="banner" alt="banner"/>
             <h3 className="page-title">Página {this.state.page}</h3>
             <div className="buttonContainer">
@@ -193,7 +203,7 @@ filtrarBuscador(infoAFiltrar){
             </ul>
             </div>
             
-            </div>
+            
             </React.Fragment>
         );
 }
