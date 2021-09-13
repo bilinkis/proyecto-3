@@ -27,7 +27,7 @@ export default class Buscador extends Component{
         return(
             <form onSubmit={(event)=> this.prevenirSubmit(event)}>
                 <input onChange={(event)=> this.capturarInfo(event)}type="text"/>
-                <input type="submit" />
+                <input type="submit" className="button-17" />
             </form>
         )
     }
