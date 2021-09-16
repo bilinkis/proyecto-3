@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Tarjeta from '../tarjeta/Tarjeta';
 import Buscador from '../buscador/Buscador';
+import Carousel from '../carousel/Carousel';
 import _ from 'underscore';
 
 
@@ -29,6 +30,8 @@ class Container extends Component {
             movies:data.results,
             filterBuscador: data.results 
         })
+        
+          
         })
         .catch((error)=>{
             return console.log(error);
@@ -37,8 +40,13 @@ class Container extends Component {
     deleteCard = (id) =>{
         console.log(id);
         let filteredMovies = this.state.movies.filter(movies => movies.id !== id);
+        if(this.state.filterBuscador !== []){
+            this.setState({filterBuscador:filteredMovies, movies:filteredMovies})
+        } else{
+            this.setState({movies:filteredMovies})
+        }
         console.log(filteredMovies);
-        this.setState({movies:filteredMovies})
+        
     }
     loadPage = (page) =>{
         let number = page.target.getAttribute('data-page');
@@ -78,10 +86,15 @@ class Container extends Component {
         this.setState({movies: orderedByName});
     }
     column = () => {
-        document.getElementById('movie-container').style="flex-direction:column";
+        document.getElementById('movie-container').style.flexDirection="column";
     }
     row = () => {
-        document.getElementById('movie-container').style="flex-direction:row"
+        if(document.getElementById('movie-container').style.flexDirection === "row"){
+            document.getElementById('movie-container').style.flexDirection = "column";
+        }
+        else{
+            document.getElementById('movie-container').style.flexDirection = "row";
+        }
     }
     swapPositions = (a,b) => {
         Array.prototype.swapItems = function(a, b){
@@ -92,7 +105,20 @@ class Container extends Component {
         this.setState({movies:swapped});
     }
     componentDidMount(){
+        
         this.fetchData(1);
+        
+       /* if(document.getElementById('movie-container').style.flexDirection === 'row'){
+            document.getElementById('columns').style = 'display:inline-flex';
+            document.getElementById('rows').style = 'display:none';
+        }
+        else {
+            document.getElementById('rows').style = 'display:inline-flex';
+            document.getElementById('columns').style = 'display:none';
+        }*/
+}
+componentDidUpdate(){
+    console.log(document.getElementById('movie-container').style.flexDirection)
 }
 
 filtrarBuscador(infoAFiltrar){
@@ -115,14 +141,20 @@ filtrarBuscador(infoAFiltrar){
 
 
     render = () => {
+        
         return (
             <React.Fragment>
-            <div>
+            <div style={{textAlign:"center"}}>
                 <h3>Buscador</h3>
                 <Buscador filtrarBuscador={(infoAFiltrar)=> this.filtrarBuscador(infoAFiltrar)}/>
             </div>
             
             <div>
+
+                <Carousel movies={this.state.movies}/>
+  
+</div>
+                
                 <img src="./img/banner.jpg" className="banner" alt="banner"/>
             <h3 className="page-title">Página {this.state.page}</h3>
             <div className="buttonContainer">
@@ -130,10 +162,12 @@ filtrarBuscador(infoAFiltrar){
             <button class="button-17" onClick={this.orderByRatingAsc}>Ordenar por rating (asc)</button>
             <button class="button-17" onClick={this.orderByNameDesc}>Ordenar por título (desc)</button>
             <button class="button-17" onClick={this.orderByNameAsc}>Ordenar por título (asc)</button>
-            <button class="button-17" onClick={this.column}>Ver en columnas</button>
-            <button class="button-17" onClick={this.row}>Ver en filas</button>
+            <button class="button-17" id="rows" onClick={this.row}>Cambiar display</button>
+           
+            
+            
             </div>
-            <div className='contenedor-pelis' id="movie-container">
+            <div className='contenedor-pelis' id="movie-container" style={{flexDirection:'row'}}>
                 
                  {this.state.movies === [] ? //si array de Movies vacío
 
@@ -169,7 +203,7 @@ filtrarBuscador(infoAFiltrar){
             </ul>
             </div>
             
-            </div>
+            
             </React.Fragment>
         );
 }

@@ -30,11 +30,11 @@ render (){
                     </div>
                     
                 </section>
-                <main className="product-box_data">
+                <main className="product-box_data" id={"movie"+this.props.index}>
                     <img className="product-box_image" src={"https://www.themoviedb.org/t/p/w300_and_h450_bestv2" + this.props.image} alt=""/>
                     <h3>{this.props.title}</h3>
                     <p className="description">{this.props.descripcion}</p>
-                    <button id={"button"+this.props.id} onClick={() => this.props.moreInfo(this.props.id)}>Ver más</button>
+                    <button className="button-17" id={"button"+this.props.id} onClick={() => this.props.moreInfo(this.props.id)}>Ver más</button>
                     <div className="extra">
                     <section className="aditional-info" id={this.props.id}>
                         <p><b>Rating:</b> {this.props.rating}</p>
