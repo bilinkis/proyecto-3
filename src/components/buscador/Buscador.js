@@ -17,18 +17,20 @@ export default class Buscador extends Component{
     capturarInfo(event){
     console.log(event.target.value)
     this.setState({
-    valor: event.target.value
+    valor: event.target.value //target = identifica campo de evento
 },
-() => this.props.filtrarBuscador(this.state.valor)
+() => this.props.filtrarBuscador(this.state.valor) //función callback que se ejecuta desp de actualizar el estado
 )
     }
 
     render(){
         return(
-            <form onSubmit={(event)=> this.prevenirSubmit(event)}>
+            <form onSubmit={(event)=> this.prevenirSubmit(event)}> 
                 <input onChange={(event)=> this.capturarInfo(event)}type="text"/>
                 <input type="submit" />
             </form>
         )
     }
 }
+//onSubmit -> evento cuando enviamos
+//onChange -> evento cuando se modifica el campo
